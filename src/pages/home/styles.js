@@ -47,7 +47,7 @@ export default StyleSheet.create({
     },
 
     incident: {
-        marginHorizontal: 10,
+        marginHorizontal: 4,
         marginTop: 10,
         marginBottom: 3,
         padding: 24,
@@ -56,9 +56,22 @@ export default StyleSheet.create({
         elevation: 2,
     },
 
+    incidentTitleMarker: {
+        flexDirection: 'row',
+        //justifyContent: 'space-between',
+        //justifyContent: 'flex-start'
+    },
+
+    incidentIconMarker: {
+        flexDirection: 'row',
+        //marginHorizontal: 5
+        //justifyContent: 'space-between',
+    },
+
     incidentProperty: {
-        fontSize: 14,
-        color: '#41414d',
+        fontSize: 18,
+        color: '#31314d',
+        //color: '#000',
         fontWeight: 'bold',
     },
 
@@ -76,7 +89,8 @@ export default StyleSheet.create({
     },
 
     detailsButtonText: {
-        color: '#E02041',
+        //color: '#e65719',
+        color: '#000',
         fontSize: 15,
         fontWeight: 'bold',
     }
