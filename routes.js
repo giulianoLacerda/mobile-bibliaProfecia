@@ -1,6 +1,5 @@
 import React, { useState, useLayoutEffect} from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import { Button } from 'react-native-elements';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,6 +9,7 @@ import Constants from 'expo-constants';
 import Home from './src/pages/home';
 import Bookmark from './src/pages/bookmark';
 import Read from './src/pages/read';
+import Study from './src/pages/study';
 
 const Stack = createStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -52,7 +52,6 @@ function BottomTabs({ navigation }) {
       ),
     });
   }, [navigation, setCount]);
-
   
   return (
     <BottomTab.Navigator
@@ -74,8 +73,8 @@ function BottomTabs({ navigation }) {
       })}
       tabBarOptions={{
         showLabel: false,
-        activeTintColor: '#e65719',
-        inactiveTintColor: '#949494',
+        activeTintColor: '#000',
+        inactiveTintColor: '#b4b4b4',
       }}>
         <BottomTab.Screen name="Home"> 
           {props => <Home {...props} count={count}/> }
@@ -106,6 +105,7 @@ export default function Routes() {
                               headerTitleStyle: styles.headerTitle
                             })}
                           />
+              <Stack.Screen name="Study" component={Study} />
           </Stack.Navigator>
         </NavigationContainer>
     )
@@ -113,49 +113,15 @@ export default function Routes() {
 
 const styles = StyleSheet.create({
   container: {
-      //flex: 1,
-      //flexDirection:'row',
-      //paddingHorizontal: 24,
-      //paddingTop: Constants.statusBarHeight + 20,
       backgroundColor: '#FFF',
-      //paddingVertical: 45,
       alignItems: 'center',
-      //height: 45,
-      //marginTop: 15,
-      //paddingBottom: 500,
-      //marginBottom: 15,
       marginHorizontal:24,
-      //borderWidth: 5,
-      //height: 45,
-      //elevation: 1,
-      
-  },
-
-  header: {
-      flexDirection:'row',
-      justifyContent: 'flex-start',
-      alignItems: 'center',
   },
 
   headerTitle: {
       fontSize: 22,
       textAlign:'center',
       flex: 1,
-      color: '#000',
-      //fontWeight: 'bold',
-      //color: '#E82041',
-      //paddingLeft: 110,
+      color: '#000'
   }
-})
-
-
-
-/*export default function Routes() {
-    return (
-        <NavigationContainer>
-            <AppStack.Navigator screenOptions={{ headerShown: false }}>
-                <AppStack.Screen name="Home" component={Home} />
-            </AppStack.Navigator>
-        </NavigationContainer>
-    )
-}*/
+});
